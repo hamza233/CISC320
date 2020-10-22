@@ -1,5 +1,5 @@
 
-public class Cow {
+public class Cow implements Comparable<Cow>{
 	
 	int id;
 	int latestWeight;
@@ -28,7 +28,7 @@ public class Cow {
 
 	public void setTotalMilk(int totalMilk) {
 		this.totalMilk += totalMilk;
-		System.out.println("Total Milk for "+this.id+" updated to "+this.totalMilk);
+		//System.out.println("Total Milk for "+this.id+" updated to "+this.totalMilk);
 
 	}
 
@@ -58,14 +58,14 @@ public class Cow {
 	}
 	public void setAvgMilk() {
 		this.avgMilk = this.totalMilk/this.numOfMilkings;
-		System.out.println("Average Milk for "+this.id+" updated to "+this.avgMilk);
+		//System.out.println("Average Milk for "+this.id+" updated to "+this.avgMilk);
 	}
 	public int getNumOfMilkings() {
 		return numOfMilkings;
 	}
 	public void incNumOfMilkings() {
 		this.numOfMilkings=this.numOfMilkings+1;
-		System.out.println("Number of Milkings for "+this.id+" updated to "+this.numOfMilkings);
+		//System.out.println("Number of Milkings for "+this.id+" updated to "+this.numOfMilkings);
 
 	}
 	public int getTimestamp() {
@@ -82,6 +82,15 @@ public class Cow {
 		return id + " " + latestWeight + " " + lowestWeight+ " " +avgMilk+"\n";
 	}
 	
+	@Override
+    public int compareTo(Cow a) { 
+    	if(this.getLowestWeight() - a.getLowestWeight()==0) {
+    		return this.getLatestWeight() - a.getLatestWeight();
+    	}else if(this.getLatestWeight() - a.getLatestWeight()==0) {
+    		return this.getAvgMilk() - a.getAvgMilk();
+    	}else
+    		return this.getLowestWeight() - a.getLowestWeight(); 
+    } 	
 	
 	
 }

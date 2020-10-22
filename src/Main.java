@@ -2,7 +2,9 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Comparator;
 import java.util.HashMap;
+import java.util.*;
 
 public class Main {
 
@@ -14,10 +16,13 @@ public class Main {
 		  String type;
 		  int val;
 		  int time;
+		  ArrayList <Integer> ids = new ArrayList<Integer>();
 		  HashMap<Integer, Cow> cows = new HashMap<Integer, Cow>();
 		  while((nextLine = inFile.readLine()) != null)
 		  {
-			  if(nextLine.length()<5)continue; // skips first line that has number of records
+			  if(nextLine.length()<5) {
+				  continue; // skips first line that has number of records
+			  }
 			  
 		      info  = nextLine.split(" ");
 		      id = Integer.parseInt(info[0]);
@@ -46,6 +51,7 @@ public class Main {
 		    	  
 		      }else {
 		    	  cows.put(id, new Cow(id));
+		    	  ids.add(id);
 		    	  if(type.equals("M")) {
 
 		    		  cows.get(id).incNumOfMilkings();
@@ -65,7 +71,22 @@ public class Main {
 		      }
 
 		  }
-		  System.out.println(cows);
+		  ArrayList <Cow> list = new ArrayList<Cow>();
+		  for(int i : ids) {
+			  list.add(cows.get(i));
+		  }
+		  Collections.sort(list);
+		  
+		  for(Cow c : list) {
+			  System.out.print(c);
+		  }
+		  
+	
 	}
+	
+ 
 
 }
+
+
+

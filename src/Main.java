@@ -9,7 +9,11 @@ import java.util.*;
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException  {
-		  BufferedReader inFile = new BufferedReader(new FileReader("data.txt"));
+		 // BufferedReader inFile = new BufferedReader(new FileReader("data.txt"));
+		Scanner scan = new Scanner(System.in);
+		String in = scan.nextLine();
+		 BufferedReader inFile = new BufferedReader(new FileReader(in));
+
 		  String[] info;
 		  String nextLine;
 		  int id;
@@ -18,7 +22,7 @@ public class Main {
 		  int time;
 		  ArrayList <Integer> ids = new ArrayList<Integer>();
 		  HashMap<Integer, Cow> cows = new HashMap<Integer, Cow>();
-		  while((nextLine = inFile.readLine()) != null)
+		  while((nextLine=inFile.readLine()) != null) 
 		  {
 			  if(nextLine.length()<5) {
 				  continue; // skips first line that has number of records
@@ -73,6 +77,7 @@ public class Main {
 		  }
 		  ArrayList <Cow> list = new ArrayList<Cow>();
 		  for(int i : ids) {
+			  if(cows.get(i).getNumOfMilkings()==0 && cows.get(i).getLatestWeight()==0) continue;
 			  list.add(cows.get(i));
 		  }
 		  Collections.sort(list);

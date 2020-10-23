@@ -1,4 +1,6 @@
-
+/**
+ * Cow class
+ */
 public class Cow implements Comparable<Cow> {
 
 	int id;
@@ -9,6 +11,11 @@ public class Cow implements Comparable<Cow> {
 	int numOfMilkings; // to compute avgMilk
 	int timestamp; // has to be the latest
 
+	/**
+	 * Constructor for Cow class. Initializes the values for cow object.
+	 * 
+	 * @param id the id of the cow object
+	 */
 	public Cow(int id) {
 		this.id = id;
 		this.latestWeight = 0;
@@ -19,64 +26,126 @@ public class Cow implements Comparable<Cow> {
 		this.timestamp = 0;
 	}
 
+	/**
+	 * Gets the total milk produced by the cow in pounds
+	 * 
+	 * @return the total milk produced by the cow in pounds
+	 */
 	public int getTotalMilk() {
 		return totalMilk;
 	}
 
+	/**
+	 * Sets the total milk produced by the cow in pounds
+	 * 
+	 * @param totalMilk the total milk produced by the cow in pounds to be set
+	 */
 	public void setTotalMilk(int totalMilk) {
 		this.totalMilk += totalMilk;
-		// System.out.println("Total Milk for "+this.id+" updated to "+this.totalMilk);
-
 	}
 
+	/**
+	 * Gets the ID of the cow
+	 * 
+	 * @return the ID of the cow
+	 */
 	public int getId() {
 		return id;
 	}
 
+	/**
+	 * Sets the ID of the cow
+	 * 
+	 * @param id the ID to be set
+	 */
 	public void setId(int id) {
 		this.id = id;
 	}
 
+	/**
+	 * Gets the latest weight of the cow in pounds
+	 * 
+	 * @return the latest weight of the cow in pounds
+	 */
 	public int getLatestWeight() {
 		return latestWeight;
 	}
 
+	/**
+	 * Sets the latest weight of the cow in pounds
+	 * 
+	 * @param latestWeight the latest weight of the cow in pounds to be set
+	 */
 	public void setLatestWeight(int latestWeight) {
 		this.latestWeight = latestWeight;
 	}
 
+	/**
+	 * Gets the lowest weight of the cow in pounds
+	 * 
+	 * @return the lowest weight of the cow in pounds
+	 */
 	public int getLowestWeight() {
 		return lowestWeight;
 	}
 
+	/**
+	 * Sets the lowest weight of the cow in pounds
+	 * 
+	 * @param lowestWeight the lowest weight of the cow in pounds to be set
+	 */
 	public void setLowestWeight(int lowestWeight) {
 		this.lowestWeight = lowestWeight;
 	}
 
+	/**
+	 * Gets the average amount of milk produced by the cow in pounds
+	 * 
+	 * @return the average amount of milk produced by the cow in pounds
+	 */
 	public int getAvgMilk() {
 		return avgMilk;
 	}
 
+	/**
+	 * Sets the average amount of milk produced by the cow in pounds. This is
+	 * calculated by taking the sum of all the milkings and dividing it by the
+	 * number of milkings.
+	 */
 	public void setAvgMilk() {
 		this.avgMilk = this.totalMilk / this.numOfMilkings;
-		// System.out.println("Average Milk for "+this.id+" updated to "+this.avgMilk);
 	}
 
+	/**
+	 * Gets the number of milkings
+	 * 
+	 * @return the number of milkings
+	 */
 	public int getNumOfMilkings() {
 		return numOfMilkings;
 	}
 
+	/**
+	 * Increments the number of milkings
+	 */
 	public void incNumOfMilkings() {
 		this.numOfMilkings = this.numOfMilkings + 1;
-		// System.out.println("Number of Milkings for "+this.id+" updated to
-		// "+this.numOfMilkings);
-
 	}
 
+	/**
+	 * Gets the timestamp representing when a record was made
+	 * 
+	 * @return the timestamp
+	 */
 	public int getTimestamp() {
 		return timestamp;
 	}
 
+	/**
+	 * Sets the timestamp representing when a record was made
+	 * 
+	 * @param timestamp the timestamp
+	 */
 	public void setTimestamp(int timestamp) {
 		this.timestamp = timestamp;
 	}

@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.*;
 
+/**
+ * Main class for outputting sorted cow status reports given a sequence of cow records
+ */
 public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -57,9 +60,10 @@ public class Main {
 		
 		ArrayList<Cow> list = new ArrayList<Cow>();
 		for (int i : ids) {
-			if (cows.get(i).getNumOfMilkings() == 0 || cows.get(i).getLatestWeight() == 0)
+			if (cows.get(i).getLatestWeight() == 0 || cows.get(i).getNumOfMilkings() == 0)
 				continue;
-			list.add(cows.get(i));
+			list.add(cows.get(i)); // only adds cows to list if they have at least one weighing and at least one
+									// milking
 		}
 		Collections.sort(list);
 

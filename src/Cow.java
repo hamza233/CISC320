@@ -29,9 +29,6 @@ public class Cow implements Comparable<Cow> {
 
 	}
 
-	public Cow() {
-	}
-
 	public int getId() {
 		return id;
 	}
